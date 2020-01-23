@@ -1,0 +1,24 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if seller %}
+      <h2>Found {{ seller|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 seller for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+{% if seller %}
+    {% for seller in sellers %}
+  <div class="col-sm-6 col-md-3">
+          <h1>{{seller.name}}</h1>
+      </div>
+      {% endfor%}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
